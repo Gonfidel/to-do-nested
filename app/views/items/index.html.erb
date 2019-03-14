@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+
+</div class="ui middle aligned aligned grid">
+  <div class="ui main container">
+  <h1>Items</h1>
+<table class="ui selectable left aligned table small ">
+  <thead>
+    <tr class="ui selectabled black">
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @items.each do |item| %>
+      <tr class="ui left aligned table gray">
+        <td><%= item.name %></td>
+        <td><%= link_to 'Back', board_lists_path, :class => "ui button primary" %></td>
+        <td><%= link_to 'Edit', edit_board_list_item_path(id: item.id), :class => "ui button primary" %></td>
+        <td><%= link_to 'Destroy', [@board,@list,@item], method: :delete, data: { confirm: 'Are you sure?' }, :class => "ui button primary" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Item', new_board_list_item_path, :class => "ui button primary center" %>
+  </div>
+</div>
